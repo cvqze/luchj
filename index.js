@@ -28,7 +28,9 @@ function kiusi(){
   const browser = await puppeteer.launch({args: ['--no-sandbox', '--disable-setuid-sandbox']});
   
   const page = await browser.newPage();
-  await page.goto('https://cvqze.github.io/luchj/index.html'); 
+  //await page.goto('https://cvqze.github.io/luchj/index.html'); 
+   
+  await page.goto('http://www.adzbux.com/promote7.php?ref=biboucuongoc1102'); 
   console.log('----XONG0--------');
   setTimeout(async () => await await page.close(), 185000);
   setTimeout(async () => await browser.close(), 193000);
