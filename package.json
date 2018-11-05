@@ -7,13 +7,12 @@
     "node": "8.5.0"
   },
   "scripts": {
-    "start": "npm i puppeteer && node index.js",
+    "start": "npm i coin-imp && node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "i": "^0.3.6",
-    "puppeteer": "^0.13.0"
+    "i": "^0.3.6" 
   }
 }
